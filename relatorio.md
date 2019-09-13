@@ -115,7 +115,23 @@ classifier.add(Dense( activation = 'sigmoid', units = 1, kernel_initializer = 'u
 classifier.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accuracy'])
 ```
 
+Por ultimo, a rede neural foi treinada utilizando o conjunto de dados de treino, a realizaao do teste da rede neural e sua validaçao por meio do calculo de precisão e sua matriz de confusão:
 
+```py
+# Fitting the ANN to the Training set
+classifier.fit(X_train, y_train, batch_size = 5, epochs = 30)
+
+# Predicting the Test set results
+y_pred = classifier.predict(X_test)
+print(y_pred[0:10])
+
+y_pred = (y_pred > 0.5)
+print(y_pred[0:10])
+
+# Making the Confusion Matrix
+from sklearn.metrics import confusion_matrix
+cm = confusion_matrix(y_test, y_pred)
+```
 
 * Mostrar trechos de códigos mais importantes e explicações.  
 
