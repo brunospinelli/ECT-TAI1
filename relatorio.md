@@ -78,12 +78,43 @@ import pandas as pd
 
 dataset = pd.read_csv('https://raw.githubusercontent.com/ect-info/ml/master/dados/DataBaseLop.csv')
 ```
-Em seguida foram selecionaos quais atributos seriam utilizados para o treinamento e teste da rede neural, também foi feita a separação dos conjuntos de treinamento e teste utilizando o método ```pysklearn.model_selection``` da bibliotéca ```py train_test_split```
+Em seguida foram selecionaos quais atributos seriam utilizados para o treinamento e teste da rede neural, também foi feita a separação dos conjuntos de treinamento e teste utilizando o método ```pysklearn.model_selection``` da bibliotéca ```py train_test_split``` e o ajuste das escalas dos dados, por possuírem diferentes grandezas, utilizando o método ```py sklearn.preprocessing``` da bibliotéca ```py StandardScaler```:
 
 ```py
 X = dataset.iloc[:,[2,19,20,21]].values
 y = dataset.iloc[:, 11].values
+
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
+
+from sklearn.preprocessing import StandardScaler
+sc = StandardScaler()
+X_train = sc.fit_transform(X_train)
+X_test = sc.transform(X_test)
 ```
+Logo após foi criada e iniciada a rede neural MLP utilizando a biblioteca Keras, em segida foram adicionadas a camada de entrada, as duas camadas escondidas e a camada de saída, além da seleção dos modos de operação da rede:
+
+```py
+import keras
+from keras.models import Sequential
+from keras.layers import Dense
+
+Initialising the ANN
+classifier = Sequential()
+
+# Adding the input layer and the first hidden layer
+classifier.add(Dense( activation = 'relu', input_dim = 4, units = 4, kernel_initializer = 'uniform'))
+
+# Adding the second hidden layer
+classifier.add(Dense( activation = 'relu', units = 6, kernel_initializer = 'uniform' ))
+
+# Adding the output layer
+classifier.add(Dense( activation = 'sigmoid', units = 1, kernel_initializer = 'uniform'))
+
+# Compiling the ANN
+classifier.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accuracy'])
+```
+
 
 
 * Mostrar trechos de códigos mais importantes e explicações.  
