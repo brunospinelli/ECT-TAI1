@@ -69,6 +69,15 @@ Com o objetivo de tentar prever a aprovação ou não dos alunos os seguintes at
 
 ## Códigos 
 
+A rede neural foi codificada utilizando a linguagem de programacão Python. O programa utilizou a bibliotéca Pandas e numpy para auzilizar no processo de importar o arquivo de dados e realizar operaoes matemáticas com os mesmos:
+
+```py
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+
+dataset = pd.read_csv('https://raw.githubusercontent.com/ect-info/ml/master/dados/DataBaseLop.csv')
+```
 
 
 * Mostrar trechos de códigos mais importantes e explicações.  
