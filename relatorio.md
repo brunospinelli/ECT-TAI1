@@ -78,6 +78,12 @@ import pandas as pd
 
 dataset = pd.read_csv('https://raw.githubusercontent.com/ect-info/ml/master/dados/DataBaseLop.csv')
 ```
+Em seguida foram selecionaos quais atributos seriam utilizados para o treinamento e teste da rede neural, também foi feita a separação dos conjuntos de treinamento e teste utilizando o método ```pysklearn.model_selection``` da bibliotéca ```py train_test_split```
+
+```py
+X = dataset.iloc[:,[2,19,20,21]].values
+y = dataset.iloc[:, 11].values
+```
 
 
 * Mostrar trechos de códigos mais importantes e explicações.  
