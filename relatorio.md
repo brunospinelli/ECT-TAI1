@@ -2,12 +2,44 @@
 
 ## Introdução
 
+Este trabalho foi realizado por Bruno Guedes Spinelli.
+
+O objetivo deste trabalho é realizar uma previsão da situação final, possivel aprovação ou reprovação, de alunos a partir de dados coletados sobre as atividades realizadas, ou não, pelo aluno. Para conseguir realizar a previsão foi utilizado Multi-layer Perceptron (MLP), um tipo de rede neural artificial. A base de dados utilizada pode ser encontrada clicando aqui, nela podemos obervar as sequintes classificações de dados:
+
+qsemana: quantidade de dias diferentes que houve submissão de questões
+
+submeteu: quantidade de questões submetidas pelo aluno por semana
+
+subListaLab: quantidade de submissões na lista de laboratório a cada 2 semanas
+
+subListaExer: quantidade de submissões na lista de exercícios a cada 2 semanas
+
+subDistintasLab: quantidade de dias em que submeteu, a cada 2 semanas, nas listas de lab
+
+subDistintasExer: quantidade de dias em que submeteu, a cada 2 semanas, nas listas de exer
+
+diferentesLabSemanas: quantidade de questões diferentes submetidas nas listas de laboratório a cada 2 semanas
+
+diferentesExerSemanas: quantidade de questões diferentes submetidas nas listas de exercícios a cada 2 semanas
+
+situacao: indica se o aluno foi aprovado (1) ou reprovado (0)
+
+qsub: quantidade de submissões das listas correspondente (seja lab ou exercicio)
+
+qsubp: uantidade de questões submetidas para a prova 1 (L1,L2,L3) ou da prova 2 (L4,L5)
+
+totalsub: total de submissões feitas pelo aluno
+
+igualACem: quantidade de submissões em que o aluno acertou 100%, seja nas L123 ou L45
+
+
 * Apresentar os membros da equipe. 
 * Descrever o problema.  
 * Descrever a base de dados.  
 
 ## Metodologia 
 
+O MLP
 * Explicar o modelo de _machine learning_ (ML) que você está trabalhando. 
 * Explicar as etapas do treinamento e teste. 
 * Caso tenha selecionado atributos, explicar a motivação para a seleção de tais atributos. 
