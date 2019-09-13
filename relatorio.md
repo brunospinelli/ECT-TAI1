@@ -39,7 +39,16 @@ igualACem: quantidade de submissões em que o aluno acertou 100%, seja nas L123 
 
 ## Metodologia 
 
-O MLP
+O Perceptron foi o primeiro modelo de rede neural artificial criado com a capacidade de aprendizado. Sendo baseado no funcionamento dos neurônios e sinapses biológicas, o Perceptron é capaz de classificar as entradas, de forma binária, em dois grupos distintos e sua arquitetura é baseada em 3 elementos principais:
+
+1) Uma camada de entrada (X).
+2) Uma camada de saída (Output).
+3) Um conjunto de pesos (W) ligando a entrada à saída.
+
+Neste tipo de rede a aprendizagem da rede é realizada pela modificação dos pesos (W) durante o seu treinamento. Entretanto, o Perceptron apenas é capaz de solucionar problemas linearmente separáveis, o que é um grande problema afinal problemas reais normalmente não podem ser solucionados apenas com uma reta para separar seus elementos.
+
+O MLP é uma rede neural artificial, muito parecida com o Perceptron, mas que pode ser utilizada para situações que exijam mais de uma reta para a separação correta dos elementos de entrada.
+
 * Explicar o modelo de _machine learning_ (ML) que você está trabalhando. 
 * Explicar as etapas do treinamento e teste. 
 * Caso tenha selecionado atributos, explicar a motivação para a seleção de tais atributos. 
