@@ -6,37 +6,37 @@ Este trabalho foi realizado por Bruno Guedes Spinelli.
 
 O objetivo deste trabalho é realizar uma previsão da situação final, possivel aprovação ou reprovação, de alunos a partir de dados coletados sobre as atividades realizadas, ou não, pelo aluno. Para conseguir realizar a previsão foi utilizado Multi-layer Perceptron (MLP), um tipo de rede neural artificial treinada por com uma base de dados feita a partir dos dados de alunos durante o semestre 2017.2 A base de dados utilizada pode ser encontrada clicando [aqui], nela podemos obervar as sequintes atributos de dados:
 
-* notaProva: nota alcançada pelo aluno na primeira prova nas provas 1 e 2 (notaProva1 e notaProva2).
+* **notaProva:** nota alcançada pelo aluno na primeira prova nas provas 1 e 2 (notaProva1 e notaProva2).
 
-* questoesFeitasProva: questões que o aluno solucionou nas provas 1 e 2 (questoesFeitasProva1 e questoesFeitasProva2).
+* **questoesFeitasProva:** questões que o aluno solucionou nas provas 1 e 2 (questoesFeitasProva1 e questoesFeitasProva2).
 
-* quantidadeProva: quantidade de questões existentes nas provas 1 e 2 (quantidadeProva1	e quantidadeProva2).
+* **quantidadeProva:** quantidade de questões existentes nas provas 1 e 2 (quantidadeProva1	e quantidadeProva2).
 
-* qsemana: quantidade de dias diferentes que houve submissão de questões
+* **qsemana:** quantidade de dias diferentes que houve submissão de questões.
 
-* submeteu: quantidade de questões submetidas pelo aluno por semana
+* **submeteu:** quantidade de questões submetidas pelo aluno por semana.
 
-* subListaLab: quantidade de submissões na lista de laboratório a cada 2 semanas
+* **subListaLab:** quantidade de submissões na lista de laboratório a cada 2 semanas.
 
-* subListaExer: quantidade de submissões na lista de exercícios a cada 2 semanas
+* **subListaExer:** quantidade de submissões na lista de exercícios a cada 2 semanas.
 
-* subDistintasLab: quantidade de dias em que submeteu, a cada 2 semanas, nas listas de lab
+* **subDistintasLab:** quantidade de dias em que submeteu, a cada 2 semanas, nas listas de lab.
 
-* subDistintasExer: quantidade de dias em que submeteu, a cada 2 semanas, nas listas de exer
+* **subDistintasExer:** quantidade de dias em que submeteu, a cada 2 semanas, nas listas de exer.
 
-* diferentesLabSemanas: quantidade de questões diferentes submetidas nas listas de laboratório a cada 2 semanas
+* **diferentesLabSemanas:** quantidade de questões diferentes submetidas nas listas de laboratório a cada 2 semanas.
 
-* diferentesExerSemanas: quantidade de questões diferentes submetidas nas listas de exercícios a cada 2 semanas
+* **diferentesExerSemanas:** quantidade de questões diferentes submetidas nas listas de exercícios a cada 2 semanas.
 
-* situacao: indica se o aluno foi aprovado (1) ou reprovado (0)
+* **situacao:** indica se o aluno foi aprovado (1) ou reprovado (0).
 
-* qsub: quantidade de submissões das listas correspondente (seja lab ou exercicio)
+* **qsub:** quantidade de submissões das listas correspondente (seja lab ou exercicio).
 
-* qsubp: uantidade de questões submetidas para a prova 1 (L1,L2,L3) ou da prova 2 (L4,L5)
+* **qsubp:** uantidade de questões submetidas para a prova 1 (L1,L2,L3) ou da prova 2 (L4,L5).
 
-* totalsub: total de submissões feitas pelo aluno
+* **totalsub:** total de submissões feitas pelo aluno.
 
-* igualACem: quantidade de submissões em que o aluno acertou 100%, seja nas L123 ou L45
+* **igualACem:** quantidade de submissões em que o aluno acertou 100%, seja nas L123 ou L45.
 
 ## Metodologia 
 
@@ -48,7 +48,7 @@ O Perceptron foi o primeiro modelo de rede neural artificial criado com a capaci
 
 ![perceptron]
 
-Figura 1 - Representação de um Perceptron
+**Figura 1 - Representação de um Perceptron**
 
 Neste tipo de rede a aprendizagem da rede é realizada pela modificação dos pesos (W) durante o seu treinamento. Entretanto, o Perceptron apenas é capaz de solucionar problemas linearmente separáveis, o que é um grande problema afinal problemas reais normalmente não podem ser solucionados apenas com uma reta para separar seus elementos. Por este motivo foi escolhido uma rede neural Multi-Layer Perceptron (MLP) para a realização dessa atividade.
 
@@ -60,16 +60,16 @@ O MLP é uma rede neural artificial muito parecida com o Perceptron, porém poss
 
 ![mlp]
 
-Figura 2 - Representação de um MLP
+**Figura 2 - Representação de um MLP**
 
 O principio de funcionamento da MLP é dado pela propagação do sinal de entrada por todas as camadas da rede até que chegue a saída, ou seja, os neurônios das camadas subsequentes utilizam como entrasa o sinal de saída dos neurônios das camadas anteriores, seguida do calculo do erro, utilizando as saídas produzidas pelos neurônios da última camada, e da correção dos pesos de todos os neurônios, a partir da última camada, minimizando seus erros. Desta forma a cada treinamento realizado a rede neural tende a aumentar sua chance de acerto.
 
 Com o objetivo de tentar prever a aprovação ou não dos alunos os seguintes atributos foram escolhidos, com o intuito de indicar se o aluno está, ou não, estudando o conteúdo e realizando as atividasdes passadas com sucesso, ou não:
 
-* notaProva1
-* totalsub
-* igualACeml123
-* igualACeml45
+* **notaProva1**
+* **totalsub**
+* **igualACeml123**
+* **igualACeml45**
 
 ## Códigos 
 
@@ -135,26 +135,20 @@ print(y_pred[0:10])
 # Making the Confusion Matrix
 from sklearn.metrics import confusion_matrix
 cm = confusion_matrix(y_test, y_pred)
-```
-
-* Mostrar trechos de códigos mais importantes e explicações.  
+``` 
 
 ## Experimentos 
 
 Após ser treinada a MLP foi testada utilizando um conjunto de teste definido aleatoriamente. Para realizar esse teste os dados de entrada (X do conjunto de teste) do conjunto de teste foi inserido na rede neural gerando saidas de predição (Y da predição) e então se comparou os dados de saída do conjunto de teste (Y do conjunto de teste e situação final do grupo de alunos inseridos no conjunto de teste). Assim foi gerada uma matriz de confusão e consequentemente um percetual de acerto da MLP desenvolvida.
 
-Matriz de Confusão:
+**Matriz de Confusão:**
 
 [31 7]
+
 [9 43]
 
-Taxa de acerto:
+**Taxa de acerto:**
 0.8222222222222222 ou 82.2%
-
-
-* Descrever em detalhes os tipos de testes executados. 
-* Descrever os parâmentros avaliados. 
-* Explicar os resultados. 
 
 <!-- Links -->
 
