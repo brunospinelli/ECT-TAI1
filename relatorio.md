@@ -6,42 +6,37 @@ Este trabalho foi realizado por Bruno Guedes Spinelli.
 
 O objetivo deste trabalho é realizar uma previsão da situação final, possivel aprovação ou reprovação, de alunos a partir de dados coletados sobre as atividades realizadas, ou não, pelo aluno. Para conseguir realizar a previsão foi utilizado Multi-layer Perceptron (MLP), um tipo de rede neural artificial treinada por com uma base de dados feita a partir dos dados de alunos durante o semestre 2017.2 A base de dados utilizada pode ser encontrada clicando [aqui], nela podemos obervar as sequintes atributos de dados:
 
-notaProva: nota alcançada pelo aluno na primeira prova nas provas 1 e 2 (notaProva1 e notaProva2).
+* notaProva: nota alcançada pelo aluno na primeira prova nas provas 1 e 2 (notaProva1 e notaProva2).
 
-questoesFeitasProva: questões que o aluno solucionou nas provas 1 e 2 (questoesFeitasProva1 e questoesFeitasProva2).
+* questoesFeitasProva: questões que o aluno solucionou nas provas 1 e 2 (questoesFeitasProva1 e questoesFeitasProva2).
 
-quantidadeProva: quantidade de questões existentes nas provas 1 e 2 (quantidadeProva1	e quantidadeProva2)
+* quantidadeProva: quantidade de questões existentes nas provas 1 e 2 (quantidadeProva1	e quantidadeProva2).
 
-qsemana: quantidade de dias diferentes que houve submissão de questões
+* qsemana: quantidade de dias diferentes que houve submissão de questões
 
-submeteu: quantidade de questões submetidas pelo aluno por semana
+* submeteu: quantidade de questões submetidas pelo aluno por semana
 
-subListaLab: quantidade de submissões na lista de laboratório a cada 2 semanas
+* subListaLab: quantidade de submissões na lista de laboratório a cada 2 semanas
 
-subListaExer: quantidade de submissões na lista de exercícios a cada 2 semanas
+* subListaExer: quantidade de submissões na lista de exercícios a cada 2 semanas
 
-subDistintasLab: quantidade de dias em que submeteu, a cada 2 semanas, nas listas de lab
+* subDistintasLab: quantidade de dias em que submeteu, a cada 2 semanas, nas listas de lab
 
-subDistintasExer: quantidade de dias em que submeteu, a cada 2 semanas, nas listas de exer
+* subDistintasExer: quantidade de dias em que submeteu, a cada 2 semanas, nas listas de exer
 
-diferentesLabSemanas: quantidade de questões diferentes submetidas nas listas de laboratório a cada 2 semanas
+* diferentesLabSemanas: quantidade de questões diferentes submetidas nas listas de laboratório a cada 2 semanas
 
-diferentesExerSemanas: quantidade de questões diferentes submetidas nas listas de exercícios a cada 2 semanas
+* diferentesExerSemanas: quantidade de questões diferentes submetidas nas listas de exercícios a cada 2 semanas
 
-situacao: indica se o aluno foi aprovado (1) ou reprovado (0)
+* situacao: indica se o aluno foi aprovado (1) ou reprovado (0)
 
-qsub: quantidade de submissões das listas correspondente (seja lab ou exercicio)
+* qsub: quantidade de submissões das listas correspondente (seja lab ou exercicio)
 
-qsubp: uantidade de questões submetidas para a prova 1 (L1,L2,L3) ou da prova 2 (L4,L5)
+* qsubp: uantidade de questões submetidas para a prova 1 (L1,L2,L3) ou da prova 2 (L4,L5)
 
-totalsub: total de submissões feitas pelo aluno
+* totalsub: total de submissões feitas pelo aluno
 
-igualACem: quantidade de submissões em que o aluno acertou 100%, seja nas L123 ou L45
-
-
-* Apresentar os membros da equipe. 
-* Descrever o problema.  
-* Descrever a base de dados.  
+* igualACem: quantidade de submissões em que o aluno acertou 100%, seja nas L123 ou L45
 
 ## Metodologia 
 
@@ -53,6 +48,8 @@ O Perceptron foi o primeiro modelo de rede neural artificial criado com a capaci
 
 ![perceptron]
 
+Figura 1 - Representação de um Perceptron
+
 Neste tipo de rede a aprendizagem da rede é realizada pela modificação dos pesos (W) durante o seu treinamento. Entretanto, o Perceptron apenas é capaz de solucionar problemas linearmente separáveis, o que é um grande problema afinal problemas reais normalmente não podem ser solucionados apenas com uma reta para separar seus elementos. Por este motivo foi escolhido uma rede neural Multi-Layer Perceptron (MLP) para a realização dessa atividade.
 
 O MLP é uma rede neural artificial muito parecida com o Perceptron, porém possui mais de uma camada de neurônios e pode ser utilizada para situações que exijam mais de uma reta para a separação correta dos elementos de entrada. Sua arquitetura consiste nos seguintes elementos:
@@ -63,23 +60,20 @@ O MLP é uma rede neural artificial muito parecida com o Perceptron, porém poss
 
 ![mlp]
 
+Figura 2 - Representação de um MLP
+
 O principio de funcionamento da MLP é dado pela propagação do sinal de entrada por todas as camadas da rede até que chegue a saída, ou seja, os neurônios das camadas subsequentes utilizam como entrasa o sinal de saída dos neurônios das camadas anteriores, seguida do calculo do erro, utilizando as saídas produzidas pelos neurônios da última camada, e da correção dos pesos de todos os neurônios, a partir da última camada, minimizando seus erros. Desta forma a cada treinamento realizado a rede neural tende a aumentar sua chance de acerto.
 
-Com o objetivo de tentar prever a aprovação ou não dos alunos os seguintes atributos foram escolhidos, com o intuito de indicar se o aluno está, ou não, estudando o conteúdo e realizando as atividasdes passadas com sucesso:
+Com o objetivo de tentar prever a aprovação ou não dos alunos os seguintes atributos foram escolhidos, com o intuito de indicar se o aluno está, ou não, estudando o conteúdo e realizando as atividasdes passadas com sucesso, ou não:
 
-1) notaProva1
-2) totalsub
-3) igualACeml123
-4) igualACeml45
-
-
-* Explicar o modelo de _machine learning_ (ML) que você está trabalhando. 
-* Explicar as etapas do treinamento e teste. 
-* Caso tenha selecionado atributos, explicar a motivação para a seleção de tais atributos. 
+* notaProva1
+* totalsub
+* igualACeml123
+* igualACeml45
 
 ## Códigos 
 
-A rede neural foi codificada utilizando a linguagem de programacão Python. O programa utilizou a bibliotéca Pandas e numpy para auzilizar no processo de importar o arquivo de dados e realizar operaoes matemáticas com os mesmos:
+A rede neural foi codificada utilizando a linguagem de programacão Python. O programa utilizou a bibliotéca ```py pandas``` e ```py numpy``` para auxilizar no processo de importar o arquivo de dados e realizar operações matemáticas:
 
 ```py
 import numpy as np
@@ -88,7 +82,7 @@ import pandas as pd
 
 dataset = pd.read_csv('https://raw.githubusercontent.com/ect-info/ml/master/dados/DataBaseLop.csv')
 ```
-Em seguida foram selecionaos quais atributos seriam utilizados para o treinamento e teste da rede neural, também foi feita a separação dos conjuntos de treinamento e teste utilizando o método ```pysklearn.model_selection``` da bibliotéca ```py train_test_split``` e o ajuste das escalas dos dados, por possuírem diferentes grandezas, utilizando o método ```py sklearn.preprocessing``` da bibliotéca ```py StandardScaler```:
+Em seguida foram selecionaos quais atributos seriam utilizados para o treinamento e teste da rede neural; sendo eles em X notaProva1 (coluna 2), totalsub (coluna 19), igualACeml123 (coluna 20), igualACeml45 (coluna 21) e em Y situacao (coluna 11); também foi feita a separação dos conjuntos em treinamento e teste utilizando o método ```pysklearn.model_selection``` da bibliotéca ```py train_test_split```; onde 20% dos dados foram colocados no conjunto de teste e o restante no conjunto de treinamento; e o ajuste das escalas dos dados, por possuírem diferentes grandezas, utilizando o método ```py sklearn.preprocessing``` da bibliotéca ```py StandardScaler```:
 
 ```py
 X = dataset.iloc[:,[2,19,20,21]].values
@@ -102,7 +96,7 @@ sc = StandardScaler()
 X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)
 ```
-Logo após foi criada e iniciada a rede neural MLP utilizando a biblioteca Keras, em segida foram adicionadas a camada de entrada, as duas camadas escondidas e a camada de saída, além da seleção dos modos de operação da rede:
+Logo após foi criada e iniciada a rede neural MLP utilizando a biblioteca ```py keras```, em segida foram adicionadas a camada de entrada, as duas camadas escondidas e a camada de saída, além da seleção dos modos de operação da rede:
 
 ```py
 import keras
@@ -125,7 +119,7 @@ classifier.add(Dense( activation = 'sigmoid', units = 1, kernel_initializer = 'u
 classifier.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accuracy'])
 ```
 
-Por ultimo, a rede neural foi treinada utilizando o conjunto de dados de treino, a realização do teste da rede neural e sua validaçao por meio do calculo de precisão e sua matriz de confusão:
+Por último, a rede neural foi treinada utilizando o conjunto de dados de treino, a realização do teste da rede neural e sua validaçao por meio do cálculo de precisão e sua matriz de confusão:
 
 ```py
 # Fitting the ANN to the Training set
@@ -150,11 +144,12 @@ cm = confusion_matrix(y_test, y_pred)
 Após ser treinada a MLP foi testada utilizando um conjunto de teste definido aleatoriamente. Para realizar esse teste os dados de entrada (X do conjunto de teste) do conjunto de teste foi inserido na rede neural gerando saidas de predição (Y da predição) e então se comparou os dados de saída do conjunto de teste (Y do conjunto de teste e situação final do grupo de alunos inseridos no conjunto de teste). Assim foi gerada uma matriz de confusão e consequentemente um percetual de acerto da MLP desenvolvida.
 
 Matriz de Confusão:
-[[31  7]
- [ 9 43]]
+
+[31 7]
+[9 43]
+
 Taxa de acerto:
-0.8222222222222222
-90
+0.8222222222222222 ou 82.2%
 
 
 * Descrever em detalhes os tipos de testes executados. 
