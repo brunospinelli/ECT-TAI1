@@ -4,7 +4,7 @@
 
 Este trabalho foi realizado por Bruno Guedes Spinelli.
 
-O objetivo deste trabalho é realizar uma previsão da situação final, possivel aprovação ou reprovação, de alunos a partir de dados coletados sobre as atividades realizadas, ou não, pelo aluno. Para conseguir realizar a previsão foi utilizado Multi-layer Perceptron (MLP), um tipo de rede neural artificial. A base de dados utilizada pode ser encontrada clicando aqui, nela podemos obervar as sequintes atributos de dados:
+O objetivo deste trabalho é realizar uma previsão da situação final, possivel aprovação ou reprovação, de alunos a partir de dados coletados sobre as atividades realizadas, ou não, pelo aluno. Para conseguir realizar a previsão foi utilizado Multi-layer Perceptron (MLP), um tipo de rede neural artificial. A base de dados utilizada pode ser encontrada clicando [aqui], nela podemos obervar as sequintes atributos de dados:
 
 qsemana: quantidade de dias diferentes que houve submissão de questões
 
@@ -45,6 +45,8 @@ O Perceptron foi o primeiro modelo de rede neural artificial criado com a capaci
 2) Uma camada de saída (Y).
 3) Um conjunto de pesos (W) ligando a entrada à saída.
 
+![perceptron]
+
 Neste tipo de rede a aprendizagem da rede é realizada pela modificação dos pesos (W) durante o seu treinamento. Entretanto, o Perceptron apenas é capaz de solucionar problemas linearmente separáveis, o que é um grande problema afinal problemas reais normalmente não podem ser solucionados apenas com uma reta para separar seus elementos. Por este motivo foi escolhido uma rede neural Multi-Layer Perceptron (MLP) para a realização dessa atividade.
 
 O MLP é uma rede neural artificial muito parecida com o Perceptron, porém possui mais de uma camada de neurônios e pode ser utilizada para situações que exijam mais de uma reta para a separação correta dos elementos de entrada. Sua arquitetura consiste nos seguintes elementos:
@@ -52,6 +54,8 @@ O MLP é uma rede neural artificial muito parecida com o Perceptron, porém poss
 1) Uma camada de entrada (X).
 2) Uma ou mais camadas escondidas (Hidden layers).
 3) uma camada de saída (Y).
+
+![mlp]
 
 O principio de funcionamento da MLP é dado pela propagação do sinal de entrada por todas as camadas da rede até que chegue a saída, ou seja, os neurônios das camadas subsequentes utilizam como entrasa o sinal de saída dos neurônios das camadas anteriores, seguida do calculo do erro, utilizando as saídas produzidas pelos neurônios da última camada, e da correção dos pesos de todos os neurônios, a partir da última camada, minimizando seus erros. Desta forma a cada treinamento realizado a rede neural tende a aumentar sua chance de acerto.
 
@@ -115,7 +119,7 @@ classifier.add(Dense( activation = 'sigmoid', units = 1, kernel_initializer = 'u
 classifier.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accuracy'])
 ```
 
-Por ultimo, a rede neural foi treinada utilizando o conjunto de dados de treino, a realizaao do teste da rede neural e sua validaçao por meio do calculo de precisão e sua matriz de confusão:
+Por ultimo, a rede neural foi treinada utilizando o conjunto de dados de treino, a realização do teste da rede neural e sua validaçao por meio do calculo de precisão e sua matriz de confusão:
 
 ```py
 # Fitting the ANN to the Training set
@@ -137,6 +141,22 @@ cm = confusion_matrix(y_test, y_pred)
 
 ## Experimentos 
 
+Após ser treinada a MLP foi testada utilizando um conjunto de teste definido aleatoriamente. Para realizar esse teste os dados de entrada (X do conjunto de teste) do conjunto de teste foi inserido na rede neural gerando saidas de predição (Y da predição) e então se comparou os dados de saída do conjunto de teste (Y do conjunto de teste e situação final do grupo de alunos inseridos no conjunto de teste). Assim foi gerada uma matriz de confusão e consequentemente um percetual de acerto da MLP desenvolvida.
+
+Matriz de Confusão:
+[[31  7]
+ [ 9 43]]
+Taxa de acerto:
+0.8222222222222222
+90
+
+
 * Descrever em detalhes os tipos de testes executados. 
 * Descrever os parâmentros avaliados. 
 * Explicar os resultados. 
+
+<!-- Links -->
+
+[aqui]: https://github.com/ect-info/ml/blob/master/dados/DataBaseLop.csv
+[perceptron]: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Sadssa.png/469px-Sadssa.png
+[mlp]: https://1.bp.blogspot.com/-Xal8aZ5MDL8/WlJm8dh1J9I/AAAAAAAAAo4/uCj6tt4T3T0HHUY4uexNuq2BXTUwcChqACLcBGAs/s1600/Multilayer-Perceptron.jpg
