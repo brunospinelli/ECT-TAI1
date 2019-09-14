@@ -4,7 +4,13 @@
 
 Este trabalho foi realizado por Bruno Guedes Spinelli.
 
-O objetivo deste trabalho é realizar uma previsão da situação final, possivel aprovação ou reprovação, de alunos a partir de dados coletados sobre as atividades realizadas, ou não, pelo aluno. Para conseguir realizar a previsão foi utilizado Multi-layer Perceptron (MLP), um tipo de rede neural artificial. A base de dados utilizada pode ser encontrada clicando [aqui], nela podemos obervar as sequintes atributos de dados:
+O objetivo deste trabalho é realizar uma previsão da situação final, possivel aprovação ou reprovação, de alunos a partir de dados coletados sobre as atividades realizadas, ou não, pelo aluno. Para conseguir realizar a previsão foi utilizado Multi-layer Perceptron (MLP), um tipo de rede neural artificial treinada por com uma base de dados feita a partir dos dados de alunos durante o semestre 2017.2 A base de dados utilizada pode ser encontrada clicando [aqui], nela podemos obervar as sequintes atributos de dados:
+
+notaProva: nota alcançada pelo aluno na primeira prova nas provas 1 e 2 (notaProva1 e notaProva2).
+
+questoesFeitasProva: questões que o aluno solucionou nas provas 1 e 2 (questoesFeitasProva1 e questoesFeitasProva2).
+
+quantidadeProva: quantidade de questões existentes nas provas 1 e 2 (quantidadeProva1	e quantidadeProva2)
 
 qsemana: quantidade de dias diferentes que houve submissão de questões
 
