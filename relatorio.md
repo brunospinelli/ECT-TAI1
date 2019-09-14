@@ -4,7 +4,7 @@
 
 Este trabalho foi realizado por Bruno Guedes Spinelli.
 
-O objetivo deste trabalho é realizar uma previsão da situação final, possivel aprovação ou reprovação, de alunos a partir de dados coletados sobre as atividades realizadas, ou não, pelo aluno. Para conseguir realizar a previsão foi utilizado Multi-layer Perceptron (MLP), um tipo de rede neural artificial treinada por com uma base de dados feita a partir dos dados de alunos durante o semestre 2017.2 A base de dados utilizada pode ser encontrada clicando [aqui], nela podemos obervar as sequintes atributos de dados:
+O objetivo deste trabalho é realizar uma previsão da situação final, possível aprovação ou reprovação, de alunos a partir de dados coletados sobre as atividades realizadas, ou não, pelo aluno. Para conseguir realizar a previsão foi utilizado Multi-layer Perceptron (MLP), um tipo de rede neural artificial treinada por com uma base de dados feita a partir de alunos reais e durante o semestre de 2017.2. A base de dados utilizada pode ser encontrada clicando [aqui], nela podemos observar as seguintes atributos de dados:
 
 * **notaProva:** nota alcançada pelo aluno na primeira prova nas provas 1 e 2 (notaProva1 e notaProva2).
 
@@ -82,7 +82,7 @@ import pandas as pd
 
 dataset = pd.read_csv('https://raw.githubusercontent.com/ect-info/ml/master/dados/DataBaseLop.csv')
 ```
-Em seguida foram selecionaos quais atributos seriam utilizados para o treinamento e teste da rede neural; sendo eles em X notaProva1 (coluna 2), totalsub (coluna 19), igualACeml123 (coluna 20), igualACeml45 (coluna 21) e em Y situacao (coluna 11); também foi feita a separação dos conjuntos em treinamento e teste utilizando o método ```pysklearn.model_selection``` da bibliotéca ```py train_test_split```; onde 20% dos dados foram colocados no conjunto de teste e o restante no conjunto de treinamento; e o ajuste das escalas dos dados, por possuírem diferentes grandezas, utilizando o método ```py sklearn.preprocessing``` da bibliotéca ```py StandardScaler```:
+Em seguida foram selecionados quais atributos seriam utilizados para o treinamento e teste da rede neural; sendo eles em X notaProva1 (coluna 2), totalsub (coluna 19), igualACeml123 (coluna 20), igualACeml45 (coluna 21) e em Y situacao (coluna 11); também foi feita a separação dos conjuntos em treinamento e teste utilizando o método ```pysklearn.model_selection``` da biblioteca ```py train_test_split```; onde 20% dos dados foram colocados no conjunto de teste e o restante no conjunto de treinamento; e o ajuste das escalas dos dados, por possuírem diferentes grandezas, utilizando o método ```py sklearn.preprocessing``` da biblioteca ```py StandardScaler```:
 
 ```py
 X = dataset.iloc[:,[2,19,20,21]].values
@@ -96,7 +96,7 @@ sc = StandardScaler()
 X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)
 ```
-Logo após foi criada e iniciada a rede neural MLP utilizando a biblioteca ```py keras```, em segida foram adicionadas a camada de entrada, as duas camadas escondidas e a camada de saída, além da seleção dos modos de operação da rede:
+Logo após foi criada e iniciada a rede neural MLP utilizando a biblioteca ```py keras```, em seguida foram adicionadas a camada de entrada, as duas camadas escondidas e a camada de saída, além da seleção dos modos de operação da rede:
 
 ```py
 import keras
