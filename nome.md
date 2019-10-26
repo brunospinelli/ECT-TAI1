@@ -49,12 +49,27 @@ som.train_random(data = X, num_iteration = 40000)
 
 ## Experimentos 
 
-Após o treino da rede, foram geradas duas matrizes, uma contendo o total de alunos que enquadrados pelas características dos neurônios e o outro o total de alunos aprovados enquadrados nas características dos neurônios:
+Após o treino da rede, foram geradas duas matrizes, uma contendo o total de alunos enquadrados pelos pesos dos neurônios e o outro o total de alunos aprovados enquadrados nos pesos dos neurônios:
 
+![resultado1]
 
+Em seguida foram gerados gráficos de pizza representando a quantidade de alunos aprovados (azul) x alunos reprovados (amarelo) por neurônio:
+
+![resultado2]
+
+Também foi selecionado um neurônio que demonstra pesos que levam a alta chance de aprovação do aluno:
+
+![resultado3]
+
+Por último, alta chance de reprovação do aluno:
+
+![resultado4]
 
 
 <!-- Links -->
 
-[aqui]: https://raw.githubusercontent.com/ect-info/ml/master/dados/lop_submissao_semana.csv
-
+[aqui]: https://github.com/ect-info/ml/blob/master/dados/lop_submissao_semana.csv
+[resultado1]: https://github.com/brunospinelli/ECT-TAI1/blob/master/imagens/2019-10-25-222310_1920x1080_scrot.png
+[resultado2]: https://github.com/brunospinelli/ECT-TAI1/blob/master/imagens/2019-10-25-223649_1920x1080_scrot.png
+[resultado3]: https://github.com/brunospinelli/ECT-TAI1/blob/master/imagens/2019-10-25-224310_1920x1080_scrot.png
+[resultado4]: https://github.com/brunospinelli/ECT-TAI1/blob/master/imagens/2019-10-25-224311_1920x1080_scrot.png
