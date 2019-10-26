@@ -14,10 +14,15 @@ A base de dados utilizada para treinar e testar a rede pode ser encontrada clica
 
 ## Metodologia
 
+Um self-organized map (SOM) é um tipo de rede neural artificial não supervisionada, bastante utilizada para a visualização de dados de alta dimensionalidade, treinada para produzir uma representação capaz de descrever as amostras de entradas em baixa-dimensão (geralmente duas dimensões) chama de mapa. A principal diferença encontrada no SOM em comparação com outros tipos de rede neural artificial é quanto a sua forma de aprendizagem, na rede SOM a aplica-se o aprendizado competitivo, em que os pesos dos neurônios são comparados com os pesos do dado de entrada e o vencedor (aquele que possuir os pesos mais próximos dos do dado de entrada) tem seus pesos e  os pesos de seus vizinhos atualizado.
+
+![som1]
+
+**Figura 1 - Representação de um SOM**
 
 ## Códigos
 
-A rede neural foi codificada utilizando a linguagem de programacão Python. O programa utilizou as bibliotecas ```pandas```  para auxilizar no processo de importar o arquivo de dados , a bibliotéca ```numpy``` para realizar operações matemáticas e também foi utilizado a bibliotéca ```minisom``` para criar a rede:
+A rede neural foi codificada utilizando a linguagem de programação Python. O programa utilizou as bibliotecas ```pandas```  para auxiliar no processo de importar o arquivo de dados , a biblioteca ```numpy``` para realizar operações matemáticas e também foi utilizado a biblioteca ```minisom``` para criar a rede:
 
 ```py
 import pandas as pd
@@ -53,18 +58,25 @@ Após o treino da rede, foram geradas duas matrizes, uma contendo o total de alu
 
 ![resultado1]
 
+**Figura 2 - Alunos totais por neurônio da rede x alunos aprovados por neurônio da rede**
+
 Em seguida foram gerados gráficos de pizza representando a quantidade de alunos aprovados (azul) x alunos reprovados (amarelo) por neurônio:
 
 ![resultado2]
 
-Também foi selecionado um neurônio que demonstra pesos que levam a alta chance de aprovação do aluno:
+**Figura 3 - Alunos aprovados x reprovados por neurônio**
+
+Também foi selecionado um neurônio que demonstra pesos que levam a alta chance de aprovação do alunona diciplida de LoP:
 
 ![resultado3]
 
-Por último, alta chance de reprovação do aluno:
+**Figura 4 - Alta chance de aprovação na diciplina de LoP: quantidade de submissões por semana**
+
+Por último, alta chance de reprovação do aluno na diciplina de LoP:
 
 ![resultado4]
 
+**Figura 5 - Alta chance de reprovação na diciplina de LoP: quantidade de submissões por semana**
 
 <!-- Links -->
 
@@ -73,3 +85,4 @@ Por último, alta chance de reprovação do aluno:
 [resultado2]: https://github.com/brunospinelli/ECT-TAI1/blob/master/imagens/2019-10-25-223649_1920x1080_scrot.png
 [resultado3]: https://github.com/brunospinelli/ECT-TAI1/blob/master/imagens/2019-10-25-224310_1920x1080_scrot.png
 [resultado4]: https://github.com/brunospinelli/ECT-TAI1/blob/master/imagens/2019-10-25-224311_1920x1080_scrot.png
+[som1]: http://ivape3.blogs.uv.es/files/2015/03/kohonen1.png
