@@ -26,7 +26,7 @@ from minisom import MiniSom
 dataset =  pd.read_csv("https://raw.githubusercontent.com/ect-info/ml/master/dados/lop_submissao_semana.csv",index_col=False )
 dataset.head()
 ```
-Os dados da coluna situacao foram substituídos por um classificador binário, sendo dado o valor 1 para alunos aprovados e o  valor 0  para alunos reprovados, e em seguida os classificadores para a realização do treino e teste da rede foram selecionados, para X (Input) foram selecionados os dados das colunas de semana 1  até semana 21 (colunas de 2 a 22) e para Y foi selecionados os dados da coluna situacao (coluna 25):
+Os dados da coluna situacao foram substituídos por um classificador binário, sendo dado o valor 1 para alunos aprovados e o  valor 0  para alunos reprovados, e em seguida os classificadores para a realização do treino e teste da rede foram selecionados, para X (submissão de atividades por semana) foram selecionados os dados das colunas de semana 1  até semana 21 (colunas de 2 a 22) e para Y (situação final do aluno) foi selecionados os dados da coluna situacao (coluna 25):
 
 ```py
 dataset.replace('APROVADO',1,inplace=True)
@@ -47,8 +47,14 @@ som.random_weights_init(X)
 som.train_random(data = X, num_iteration = 40000)
 ```
 
+## Experimentos 
+
+Após o treino da rede, foram geradas duas matrizes, uma contendo o total de alunos que enquadrados pelas características dos neurônios e o outro o total de alunos aprovados enquadrados nas características dos neurônios:
+
+
+
 
 <!-- Links -->
 
-[aqui]: 
+[aqui]: https://raw.githubusercontent.com/ect-info/ml/master/dados/lop_submissao_semana.csv
 
