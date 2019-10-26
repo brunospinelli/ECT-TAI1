@@ -17,13 +17,34 @@ A base de dados utilizada para treinar e testar a rede pode ser encontrada clica
 
 ## Códigos
 
-A rede neural foi codificada utilizando a linguagem de programacão Python. O programa utilizou as bibliotecas ```pandas```  para auxilizar no processo de importar o arquivo de dados , a bibliotéca e ```numpy``` para realizar operações matemáticas e também foi utilizado a bibliotéca ```minisom``` para criar a rede:
+A rede neural foi codificada utilizando a linguagem de programacão Python. O programa utilizou as bibliotecas ```pandas```  para auxilizar no processo de importar o arquivo de dados , a bibliotéca ```numpy``` para realizar operações matemáticas e também foi utilizado a bibliotéca ```minisom``` para criar a rede:
 
 ```py
 import pandas as pd
 import numpy as np
+from minisom import MiniSom
 dataset =  pd.read_csv("https://raw.githubusercontent.com/ect-info/ml/master/dados/lop_submissao_semana.csv",index_col=False )
 dataset.head()
+```
+Os dados da coluna situacao foram substituídos por um classificador binário, sendo dado o valor 1 para alunos aprovados e o  valor 0  para alunos reprovados, e em seguida os classificadores para a realização do treino e teste da rede foram selecionados, para X (Input) foram selecionados os dados das colunas de semana 1  até semana 21 (colunas de 2 a 22) e para Y foi selecionados os dados da coluna situacao (coluna 25):
+
+```py
+dataset.replace('APROVADO',1,inplace=True)
+dataset.replace('APROVADO POR NOTA',1,inplace=True)
+dataset.replace('REPROVADO',0,inplace=True)
+dataset.replace('REPROVADO POR NOTA',0,inplace=True)
+dataset.replace('REPROVADO POR MÉDIA E POR FALTAS',0,inplace=True)
+
+X = dataset.iloc[:, 2:23].values
+Y = dataset.iloc[:, -3].values
+```
+
+Logo após, foi realizada a criação da rede SOM em que foram passados parametros como tamanho da rede (10 x 10), quantidade de parâmetros de entrada (21), sigma (1.0) e a taxa de aprendizado (0,5) e em seguida o treinamento da rede:
+
+```py
+som = MiniSom(x = 10, y = 10, input_len = 21, sigma = 1.0, learning_rate = 0.5)
+som.random_weights_init(X)
+som.train_random(data = X, num_iteration = 40000)
 ```
 
 
