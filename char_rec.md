@@ -5,7 +5,7 @@ Este trabalho foi realizado por Bruno Guedes Spinelli, aluno do curso de Engenha
 
 O objetivo deste trabalho é desenvolver um algoritmo de  rede neural artificial convolucional do tipo Multi-layer Perceptron (MLP) capas de reconhecer e identificar caracteres escritos a mão. Para o treinamento da rede foi utilizada um banco de imagens contendo diversas imagens de cada letra do alfabeto (de A a Z, totalizando 26 letras) e para o teste foram utilizadas imagens contando caracteres feitos a mão em um programa de edição de imagem.
 
-##Metodologia
+## Metodologia
 
 O Perceptron foi o primeiro modelo de rede neural artificial criado com a capacidade de aprendizado. Sendo baseado no funcionamento dos neurônios e sinapses biológicas, o Perceptron é capaz de classificar as entradas, de forma binária, em dois grupos distintos e sua arquitetura é baseada em 3 elementos principais:
 
@@ -99,7 +99,29 @@ history = model.fit(X_train, y_train, validation_split=0.1, epochs=50, batch_siz
 
 ## Experimentos
 
+Os testes da rede foram realizados com imagens de letras escritas a mão em um editor de imagens digital. As imagens tiveram seus tamanhos igualados aos tamanhos das imagens de treinamento da rede, convertidas para tons de cinza e por fim expostas a rede, que retornou a sua resposta para qual letra estaria escrita na imagem, conforme podem ser vistos abaixo:
 
+* **Letra A:**
 
+![a]
 
+* **Letra B:**
+
+![b]
+
+* **Letra G:**
+
+![g]
+
+* **Letra H:**
+
+![h]
+
+* **Letra T:**
+
+![t]
+
+* **Letra W:**
+
+![w]
 
