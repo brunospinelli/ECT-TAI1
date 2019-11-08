@@ -74,3 +74,32 @@ def extract_data(path):
     return images, labels
 ```
 
+Logo após, os dados foram divididos em dados de teste e dados de treinamento e foi definido o modelo de treinamento da rede que seria usado:
+
+```py
+X_train, X_test, y_train, y_test = train_test_split(images, labels_enc, test_size=0.3, random_state=1)
+
+def leNet_model():
+  model = Sequential()
+  model.add(Conv2D(30, (5,5), input_shape=(28,32,1), activation='relu'))
+  model.add(MaxPooling2D(pool_size=(2,2)))
+  model.add(Conv2D(15,(3,3), activation='relu'))
+  model.add(MaxPooling2D(pool_size=(2,2)))
+  model.add(Flatten())
+  model.add(Dense(500, activation='relu'))
+  model.add(Dense(num_classes, activation='softmax'))
+  model.compile(Adam(lr=0.01), loss='categorical_crossentropy', metrics=['accuracy'])
+  return model
+```
+Por fim foi realizado o treinamento da rede, em que se obteve um valor de 83% de acurácia:
+
+```py
+history = model.fit(X_train, y_train, validation_split=0.1, epochs=50, batch_size = 150, verbose = 1, shuffle = 1)
+```
+
+## Experimentos
+
+
+
+
+
