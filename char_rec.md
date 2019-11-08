@@ -31,4 +31,8 @@ O MLP é uma rede neural artificial muito parecida com o Perceptron, porém poss
 
 O principio de funcionamento da MLP é dado pela propagação do sinal de entrada por todas as camadas da rede até que chegue a saída, ou seja, os neurônios das camadas subsequentes utilizam como entrasa o sinal de saída dos neurônios das camadas anteriores, seguida do calculo do erro, utilizando as saídas produzidas pelos neurônios da última camada, e da correção dos pesos de todos os neurônios, a partir da última camada, minimizando seus erros. Desta forma a cada treinamento realizado a rede neural tende a aumentar sua chance de acerto.
 
+Uma rede neural convolucional (CNN do inglês Convolutional Neural network ou ConvNet) é uma classe de rede neural artificial que vem sendo aplicada com sucesso no processamento e análise de imagens digitais. Em uma CNN os dados, geralmente imagens, são pré-processados de modo que se evidencie as caracteristicas desejadas e então as caracteristicas do dado enviadas para a rede em um vetor de caracteristica, auxiliando a rede neural a ter uma melhor aprendizagem.
+
+
+
 
