@@ -105,23 +105,47 @@ Os testes da rede foram realizados com imagens de letras escritas a mão em um e
 
 ![a]
 
+**Figura 3 - Resultado da imagem contando a letra A**
+
 * **Letra B:**
 
 ![b]
+
+**Figura 4 - Resultado da imagem contando a letra B**
 
 * **Letra G:**
 
 ![g]
 
+**Figura 5 - Resultado da imagem contando a letra G**
+
 * **Letra H:**
 
 ![h]
+
+**Figura 5 - Resultado da imagem contando a letra H**
 
 * **Letra T:**
 
 ![t]
 
+**Figura 6 - Resultado da imagem contando a letra T**
+
 * **Letra W:**
 
 ![w]
 
+**Figura 7 - Resultado da imagem contando a letra W**
+
+Após verificar e analisar os resultados obtidos, podemos perceber que apesar de apresentar uma acurácia relativamente alta (83%), quando testada com os dados de teste do data set original, ao ser testada com imagens de outras fontes a rede neural não consegue se mostrar eficiente em predizer a letra apresentada nas imagens. Esse ocorrido provavelmente se deve ao fato do dataset, com o qual a rede foi treinada, não ser grande o suficiente para represenatar de forma real 26 classes diferentes de letras, causando confusão ao aprendizado da rede neural.
+
+<!-- Links -->
+
+[perceptron]: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Sadssa.png/469px-Sadssa.png
+[mlp]: https://1.bp.blogspot.com/-Xal8aZ5MDL8/WlJm8dh1J9I/AAAAAAAAAo4/uCj6tt4T3T0HHUY4uexNuq2BXTUwcChqACLcBGAs/s1600/Multilayer-Perceptron.jpg
+[a]: https://github.com/brunospinelli/ECT-TAI1/blob/master/imagens/resA.png
+[b]: https://github.com/brunospinelli/ECT-TAI1/blob/master/imagens/resB.png
+[g]: https://github.com/brunospinelli/ECT-TAI1/blob/master/imagens/resG.png
+[h]: https://github.com/brunospinelli/ECT-TAI1/blob/master/imagens/resH.png
+[t]: https://github.com/brunospinelli/ECT-TAI1/blob/master/imagens/resT.png
+[w]: https://github.com/brunospinelli/ECT-TAI1/blob/master/imagens/resW.png
