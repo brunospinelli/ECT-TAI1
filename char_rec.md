@@ -33,6 +33,44 @@ O principio de funcionamento da MLP é dado pela propagação do sinal de entrad
 
 Uma rede neural convolucional (CNN do inglês Convolutional Neural network ou ConvNet) é uma classe de rede neural artificial que vem sendo aplicada com sucesso no processamento e análise de imagens digitais. Em uma CNN os dados, geralmente imagens, são pré-processados de modo que se evidencie as caracteristicas desejadas e então as caracteristicas do dado enviadas para a rede em um vetor de caracteristica, auxiliando a rede neural a ter uma melhor aprendizagem.
 
+## Códigos 
+
+A rede neural foi codificada utilizando a linguagem de programacão Python. Primeiramente foi realizada a descompactação do contando as imagens:
+
+```py
+!unzip letras.zip
+```
+
+Em seguida as funções ```traverse_dir``` e ```extract_data```  foram tulizadas para identificar as imagens e os rótulos contidos no arquivo descompactado, e então salva-los. Enquanto a função ```read_image``` foi utilizada para aterar as imagens para tons de cinza:
+
+```py
+def traverse_dir(path):
+    for file_or_dir in os.listdir(path):
+        abs_path = os.path.abspath(os.path.join(path, file_or_dir))
+        print(abs_path)
+        if os.path.isdir(abs_path):  # dir
+            traverse_dir(abs_path)
+        else:                        # file
+            if file_or_dir.endswith('.jpg'):
+                image = read_image(abs_path)
+                images.append(image)
+                labels.append(path[len(path)-1])
+
+    return images, labels
+    
+    def read_image(file_path):
+    image = cv2.imread(file_path)
+    # converte para tons de cinza 
+    gray_scale = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    # inverte a cor 
+    image = cv2.bitwise_not(gray_scale) 
+    return image
 
 
+def extract_data(path):
+    images, labels = traverse_dir(path)
+    images = np.array(images)
+
+    return images, labels
+```
 
