@@ -3,7 +3,7 @@
 ## Introdução
 Este trabalho foi realizado por Bruno Guedes Spinelli, aluno do curso de Engenharia Biomédica da UFRN.
 
-O objetivo deste trabalho é desenvolver um algoritmo de  rede neural artificial convolucional do tipo Multi-layer Perceptron (MLP) capas de reconhecer e identificar caracteres escritos a mão. Para o treinamento da rede foi utilizada um banco de imagens contendo diversas imagens de cada letra do alfabeto (de A a Z, totalizando 26 letras) e para o teste foram utilizadas imagens contando caracteres feitos a mão em um programa de edição de imagem.
+O objetivo deste trabalho é desenvolver um algoritmo de  rede neural artificial convolucional do tipo Multi-layer Perceptron (MLP) capaz de reconhecer e identificar caracteres escritos a mão. Para o treinamento da rede foi utilizada um banco de imagens contendo diversas imagens de cada letra do alfabeto (de A a Z, totalizando 26 letras) e para o teste foram utilizadas imagens contando caracteres feitos a mão em um programa de edição de imagem.
 
 ## Metodologia
 
@@ -31,17 +31,17 @@ O MLP é uma rede neural artificial muito parecida com o Perceptron, porém poss
 
 O principio de funcionamento da MLP é dado pela propagação do sinal de entrada por todas as camadas da rede até que chegue a saída, ou seja, os neurônios das camadas subsequentes utilizam como entrasa o sinal de saída dos neurônios das camadas anteriores, seguida do calculo do erro, utilizando as saídas produzidas pelos neurônios da última camada, e da correção dos pesos de todos os neurônios, a partir da última camada, minimizando seus erros. Desta forma a cada treinamento realizado a rede neural tende a aumentar sua chance de acerto.
 
-Uma rede neural convolucional (CNN do inglês Convolutional Neural network ou ConvNet) é uma classe de rede neural artificial que vem sendo aplicada com sucesso no processamento e análise de imagens digitais. Em uma CNN os dados, geralmente imagens, são pré-processados de modo que se evidencie as caracteristicas desejadas e então as caracteristicas do dado enviadas para a rede em um vetor de caracteristica, auxiliando a rede neural a ter uma melhor aprendizagem.
+Uma rede neural convolucional (CNN do inglês Convolutional Neural network ou ConvNet) é uma classe de rede neural artificial que vem sendo aplicada com sucesso no processamento e análise de imagens digitais. Em uma CNN os dados, geralmente imagens, são pré-processados de modo que se evidencie as características desejadas, logo após, os dados são descritos em um vetor de características que é usado como entrada de treinamento da rede,  o que auxilia a rede neural a ter uma melhor aprendizagem.
 
 ## Códigos 
 
-A rede neural foi codificada utilizando a linguagem de programacão Python. Primeiramente foi realizada a descompactação do contando as imagens:
+A rede neural foi codificada utilizando a linguagem de programação Python. Primeiramente foi realizada a descompactação do aquivo contendo as imagens:
 
 ```py
 !unzip letras.zip
 ```
 
-Em seguida as funções ```traverse_dir``` e ```extract_data```  foram tulizadas para identificar as imagens e os rótulos contidos no arquivo descompactado, e então salva-los. Enquanto a função ```read_image``` foi utilizada para aterar as imagens para tons de cinza:
+Em seguida as funções ```traverse_dir``` e ```extract_data```  foram utilizadas para identificar as imagens e os rótulos contidos no arquivo descompactado, e então salva-los. Enquanto a função ```read_image``` foi utilizada para alterar as imagens para tons de cinza:
 
 ```py
 def traverse_dir(path):
@@ -99,7 +99,7 @@ history = model.fit(X_train, y_train, validation_split=0.1, epochs=50, batch_siz
 
 ## Experimentos
 
-Os testes da rede foram realizados com imagens de letras escritas a mão em um editor de imagens digital. As imagens tiveram seus tamanhos igualados aos tamanhos das imagens de treinamento da rede, convertidas para tons de cinza e por fim expostas a rede, que retornou a sua resposta para qual letra estaria escrita na imagem, conforme podem ser vistos abaixo:
+Os testes da rede foram realizados com imagens de letras escritas a mão em um editor de imagens digital. As imagens tiveram seus tamanhos igualados aos tamanhos das imagens de treinamento da rede, convertidas para tons de cinza e por fim expostas a rede, que retornou a sua resposta para qual letra estaria escrita na imagem, conforme pode ser vistos abaixo:
 
 * **Letra A:**
 
@@ -137,7 +137,7 @@ Os testes da rede foram realizados com imagens de letras escritas a mão em um e
 
 **Figura 7 - Resultado da imagem contando a letra W**
 
-Após verificar e analisar os resultados obtidos, podemos perceber que apesar de apresentar uma acurácia relativamente alta (83%), quando testada com os dados de teste do data set original, ao ser testada com imagens de outras fontes a rede neural não consegue se mostrar eficiente em predizer a letra apresentada nas imagens. Esse ocorrido provavelmente se deve ao fato do dataset, com o qual a rede foi treinada, não ser grande o suficiente para represenatar de forma real 26 classes diferentes de letras, causando confusão ao aprendizado da rede neural.
+Após verificar e analisar os resultados obtidos, podemos perceber que apesar de apresentar uma acurácia relativamente alta (83%), quando testada com os dados de teste do bando de imagens original, ao ser testada com imagens de outras fontes a rede neural não consegue se mostrar eficiente em predizer a letra apresentada nas imagens. Esse ocorrido provavelmente se deve ao fato do bando de imagens, com o qual a rede foi treinada, não ser grande o suficiente para representar de forma real 26 classes diferentes de letras, causando confusão ao aprendizado da rede neural.
 
 <!-- Links -->
 
